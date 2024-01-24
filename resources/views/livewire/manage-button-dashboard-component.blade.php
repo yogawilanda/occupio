@@ -37,3 +37,5 @@
         class="w-full md:w-auto px-6 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 mb-2 md:mb-0">Manage
         Profile</button>
 </div>
+
+
