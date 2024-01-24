@@ -1,4 +1,4 @@
-<!-- resources/views/livewire/manage-buttons.blade.php -->
+<!-- resources/views/livewire/grid-view-example.blade.php -->
 
 <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-2 md:px-5">
     {{-- Small button --}}
