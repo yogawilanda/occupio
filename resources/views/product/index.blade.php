@@ -1,9 +1,12 @@
+@livewireScripts
 <x-slot name="header"></x-slot>
 <x-app-layout>
     <div class="p-5 m-5 gap-2">
         <div class="mb-10 text-3xl font-bold text-orange-600">
             Seluruh Product
         </div>
+
+        <livewire:product-order-counter />
 
         <div class="mb-5 justify-center">
             <a href="{{ route('product.create') }}" class="bg-orange-500 hover:bg-white-700 text-white font-bold py-2 px-4 rounded">

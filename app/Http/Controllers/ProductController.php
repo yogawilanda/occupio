@@ -28,4 +28,9 @@ class ProductController extends Controller
     {
         return DB::table('products')->get();
     }
+
+    public function createProduct()
+    {
+        return view('product.create');
+    }
 }
