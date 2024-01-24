@@ -14,15 +14,19 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @if (Route::has('login'))
                         @auth
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            <x-nav-link :href="route('dashboard.index')" :active="request()->routeIs('dashboard')">
                                 Dasbor
                             </x-nav-link>
                             <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                                 Laporan Penjualan
                             </x-nav-link>
+
+                            <x-nav-link :href="route('product.index')" :active="request()->routeIs('product')">
+                                Product
+                            </x-nav-link>
                         @else
                             {{-- Home --}}
-                            <x-nav-link :href="route('product')" :active="request()->routeIs('product')">
+                            <x-nav-link :href="route('product.index')" :active="request()->routeIs('product')">
                                 Produk
                             </x-nav-link>
 
@@ -55,21 +59,32 @@
                         </button>
                     </x-slot>
 
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
+                    @if (Route::has('login'))
+                        @auth
+                            <x-slot name="content">
+                                <!-- Authentication -->
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
 
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
+                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </x-slot>
+                        @else
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('login')">
+                                    {{ __('Masuk') }}
+                                </x-dropdown-link>
+
+                                <x-dropdown-link :href="route('register')">
+                                    {{ __('Daftar') }}
+                                </x-dropdown-link>
+                            </x-slot>
+                        @endauth
+                        
+                    @endif
                 </x-dropdown>
             </div>
 
@@ -106,13 +121,13 @@
                             {{ Auth::user()->name ?? 'Nama Tamu' }}</div>
                         <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email ?? 'Email Tamu' }}</div>
                     </div>
-                    <a href="{{ url('/dashboard') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                        Dashboard
-                    </a>
                     <div class="mt-3 space-y-1">
-                        <x-responsive-nav-link :href="route('product')" :active="request()->routeIs('product')">
+                        <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product')">
                             {{ 'Product' }}
+                        </x-responsive-nav-link>
+
+                        <x-responsive-nav-link :href="route('dashboard.index')">
+                            {{ __('Dashboard') }}
                         </x-responsive-nav-link>
 
                         <x-responsive-nav-link :href="route('profile.edit')">

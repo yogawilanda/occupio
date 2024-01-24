@@ -14,7 +14,7 @@
                     {{ __('Discover the amazing features of our app.') }}
                 </p>
 
-                <a href="{{ route('dashboard') }}"
+                <a href="{{ route('dashboard.index') }}"
                     class="px-6 py-3 bg-orange-500 text-white font-semibold rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105">
                     {{ __('Get Started') }}
                 </a>
