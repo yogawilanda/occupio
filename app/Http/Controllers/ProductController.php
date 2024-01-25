@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Support\Collection;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -24,9 +25,9 @@ class ProductController extends Controller
     /**
      * Get the product list that must be foreached.
      */
-    public function getProducts(): Collection
+    public function getProducts($paginateValue = 5)
     {
-        return DB::table('products')->get();
+        return DB::table('products')->paginate($paginateValue);
     }
 
     public function createProduct()
