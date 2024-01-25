@@ -24,11 +24,11 @@
                         <div class="p-6 text-4xl text-white">
                             {{ __('Dashboard') }}
                         </div>
-
                         
-
+                        <livewire:testing-component title="">
+                        
                         {{-- Quick Menu --}}
-                        <livewire:manage-button-dashboard-component />
+                        {{-- <livewire:manage-button-dashboard-component /> --}}
 
                         {{-- Data Visualization --}}
                         {{-- TODO: Komponen Data Visualization --}}
