@@ -26,19 +26,16 @@
         Contoh Posting Data
     </div> --}}
 
-    {{-- User Counter --}}
-    <div class="text-4xl text-white">
-        Jumlah Pengguna : {{ $user->count() }}
-    </div>
+    
 
     {{-- <button class="py-2 px-4 bg-white hover:bg-slate-600 hover:duration-150 text-lg rounded-md"
     wire:click="createNewUser"
     >
-        Create New User
+        Membuat Random User
     </button> --}}
 
     {{-- Form Untuk Membuat User Secara Manual --}}
-    <div class="">
+    {{-- <div class="form-pembuatan-pengguna-baru">
         <form action="">
             <div class="container mx-auto p-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -78,17 +75,19 @@
                 </button>
             </div>
         </form>
-    </div>
-
-    <hr>
-
+    </div> --}}
     <div>
         @foreach ($user as $listUser)
-            <p>
-                {{ $listUser->name }}
+            <p class="text-white grid grid-cols-2 p-2">
+                {{ $loop->iteration }}. {{ $listUser->name }}
             </p>
         @endforeach
     </div>
 
+    <hr class="py-1">
+    {{-- User Counter --}}
+    <div class="text-2xl text-white pb-1">
+        Jumlah Pengguna : {{ $user->count() }}
+    </div>
 
 </div>
