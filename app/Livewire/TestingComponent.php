@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Rule; 
-
-
-
+use Livewire\Component;
+use Livewire\Attributes\Validate;
 class TestingComponent extends Component
 {
     // public $name = 'testing';
@@ -18,7 +14,6 @@ class TestingComponent extends Component
 
     // LiveWire Rules
 
-   
     public function render()
     {
         $user = User::all();
@@ -42,18 +37,25 @@ class TestingComponent extends Component
 
         User::create([
             'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'password' => "password1234",
+            'email' => fake()
+                ->unique()
+                ->safeEmail(),
+            'password' => 'password1234',
         ]);
     }
 
     public function save()
     {
-        dump("Button Clicked");
+        dump('Button Clicked');
     }
-    #[Rule('required|min:6')]
+
+    #[Validate(['required', 'min:3'])]
     public $name;
+
+    #[Validate(['required', 'email:rfc,dns', 'unique:users'])]
     public $email;
+
+    #[Validate(['required', 'min:8'])]
     public $password;
 
     /**
@@ -62,11 +64,8 @@ class TestingComponent extends Component
      */
     public function createNewUserUsingForm()
     {
-        $this->validate([
-            'name' => 'required|min:6',
-            'email' => 'required|email:rfc,dns|unique:users',
-            'password' => 'required|min:8',
-        ]);
+        $this->validate();
+
         User::create([
             'name' => $this->name,
             'email' => $this->email,

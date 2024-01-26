@@ -8,8 +8,8 @@
 
         <livewire:product-order-counter />
 
-        <livewire:table-layout/>
-        
+        <livewire:table-layout />
+        {{-- @livewire('table-layout', ['model' => 'product']) --}}
         
     </div>
 </x-app-layout>

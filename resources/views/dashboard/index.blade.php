@@ -28,7 +28,7 @@
                         <livewire:testing-component title="">
                         
                         {{-- Quick Menu --}}
-                        {{-- <livewire:manage-button-dashboard-component /> --}}
+                        <livewire:manage-button-dashboard-component />
 
                         {{-- Data Visualization --}}
                         {{-- TODO: Komponen Data Visualization --}}
