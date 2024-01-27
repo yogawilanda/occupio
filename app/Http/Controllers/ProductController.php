@@ -34,4 +34,22 @@ class ProductController extends Controller
     {
         return view('product.create');
     }
+
+    public $namaProduct;
+    public $hargaProduct;
+    public $stokProduct;
+    public $deskripsiProduct;
+    public $gambarProduct;
+
+    // ???
+    public function storeProduct()
+    {
+        $this->namaProduct = request('namaProduct');
+        $this->hargaProduct = request('hargaProduct');
+        $this->stokProduct = request('stokProduct');
+        $this->deskripsiProduct = request('deskripsiProduct');
+        $this->gambarProduct = request('gambarProduct');
+        
+        return redirect('/product');
+    }
 }

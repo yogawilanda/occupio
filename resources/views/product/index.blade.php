@@ -9,13 +9,13 @@
 
         <div class="flex flex-wrap">
             {{-- <livewire:grid-view-component > --}}
-            <livewire:transaction-list-view-component >
+            {{-- <livewire:transaction-list-view-component > --}}
 
             {{-- <div class="w-full md:w-1/2"> --}}
                 {{-- <livewire:product-form /> --}}
             {{-- </div> --}}
 
-            {{-- <livewire:product-order-counter /> --}}
+            <livewire:product-order-counter />
 
             {{-- <livewire:table-layout /> --}}
             {{-- @livewire('table-layout', ['model' => 'product']) --}}
