@@ -27,9 +27,15 @@ Route::view('/home', 'home')->name('home');
 
 Route::view('/pricing', 'pricing.index')->name('pricing');
 
+Route::get('/sales_reports', function () {
+    return view('sales_reports.index');
+})->middleware(['auth', 'verified'])->name('sales_reports.index');
+
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard.index');
+
+
 
 Route::get('/product', function () {
     $productController = app('App\Http\Controllers\ProductController');
@@ -41,6 +47,9 @@ Route::get('/product', function () {
 // Product Routes
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+
+   
+
     Route::post('/product', [ProductController::class, 'store'])->name('product.store');
     Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
     Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');

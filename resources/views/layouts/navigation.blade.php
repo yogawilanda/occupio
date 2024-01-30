@@ -17,7 +17,7 @@
                             <x-nav-link :href="route('dashboard.index')" :active="request()->routeIs('dashboard')">
                                 Dasbor
                             </x-nav-link>
-                            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                            <x-nav-link :href="route('sales_reports.index')" :active="request()->routeIs('sales_reports')">
                                 Laporan Penjualan
                             </x-nav-link>
 

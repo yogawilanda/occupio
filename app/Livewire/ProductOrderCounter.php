@@ -9,13 +9,13 @@ class ProductOrderCounter extends Component
 {   
     public $count = 0;
 
-    // public int $count = 0;
     public string $namaProduk = "";
     public string $stokProduk = "";
     
-    // public string $stokProduk; // Ini ga bisa, karena livewire perlu tau tipe data dari variabelnya dan tidak boleh NULL!
-
-
+    public string|int $incrementValue = 0;
+    public string|int $harga = 20000;
+    
+    
     public function masukkanDataProdukMelaluiButton()
     {
         $this->namaProduk = "HEHEHEEHEHqweqwe"; // Assign from request data
@@ -29,10 +29,22 @@ class ProductOrderCounter extends Component
 
         $this->incrementValue = $this->count; // Update the public property
     }
-    
-    public string|int $incrementValue = 0;
 
-    public string|int $harga = 20000;
+    public function decrement()
+    {
+
+        // Jika sudah 0, maka tidak bisa dikurangi lagi
+        if ($this->count == 0) {
+            return;
+        }
+
+        // Use  as needed
+        $this->count--;
+
+        $this->incrementValue = $this->count;
+    }
+    
+    
 
     
     public function render()

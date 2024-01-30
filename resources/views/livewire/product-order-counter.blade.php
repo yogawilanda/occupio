@@ -2,7 +2,10 @@
     <div>
         <button wire:click="increment" class="px-11 py-2 bg-orange-400">
             Tambahkan
-        </button>
+    </button>
+        <button wire:click="decrement" class="px-11 py-2 bg-orange-400">
+            Kurangi
+    </button>
     </div>
     <div>
         <h1 class="text-xl text-white px-11 py-2">{{ $count }}</h1>
